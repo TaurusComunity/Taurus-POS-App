@@ -25,7 +25,7 @@ export default {
                 azul_oscuro: "#1a2130",
                 azul_oscuro_opacidad: "rgba(26, 33, 48, 0.5)",
                 verde: "#81a263",
-              },
+            },
         },
     },
     plugins: [],

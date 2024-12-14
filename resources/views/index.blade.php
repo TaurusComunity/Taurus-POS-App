@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles / Scripts -->
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @else
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    @endif
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    @vite(['resources/css/app.css'])
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="{{ asset('assets/img/logotipos/2.svg') }}" type="image/x-icon" />
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
     <title>Login Essentials</title>
 </head>
 
@@ -90,7 +96,7 @@
         <main
             class="bg-rojo flex justify-center items-center w-[50%] rounded-xl p-[5%] animate__animated animate__fadeInRight">
             <article
-                class="bg-black rounded-xl text-center flex flex-col items-center text-blanco text-[25px] p-[40px]">
+                class="bg-negro_fuerte rounded-xl text-center flex flex-col items-center text-blanco text-[25px] p-[40px]">
                 <p>¡Hola, soy Meilan! Bot de Taurus CO</p>
                 <img src="{{ asset('assets/img/logotipos/essential.png') }}" alt="logo" width="250px" />
                 <p>Eres el Taurix #1 de nuestra excelente comunidad.</p>
