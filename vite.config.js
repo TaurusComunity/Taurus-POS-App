@@ -1,11 +1,15 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import path from 'path';
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-        }),
-    ],
-});
+/** @type {import('vite').UserConfig} */
+export default {
+  root: path.resolve(__dirname, 'resources'),  // Usamos 'resources' como root en lugar de la raíz
+  build: {
+    outDir: path.resolve(__dirname, 'public/build'),  // Salida en 'public/build'
+    emptyOutDir: true,  // Limpiar la carpeta 'build' antes de construir
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'resources'),
+    },
+  },
+};
